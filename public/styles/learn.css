@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+    margin-top: 60px;
+}
+#chooseDeck {
+    width: 50%;
+    margin: auto;
+}
+#learnDeckBtn {
+    background: rgb(247, 171, 9);
+    color: white;
+}
+#learnDeckBtn:hover {
+    background: rgb(247, 188, 61);
+}

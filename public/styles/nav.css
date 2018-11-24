@@ -1,0 +1,27 @@
+nav {
+    overflow: hidden;
+    background-color: rgb(247, 171, 9);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 1px 1px 1px 1px black;
+}
+nav a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px;
+    margin-right: 20px;
+    text-decoration: none;
+}
+nav h1{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    margin: 0;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 26px
+}

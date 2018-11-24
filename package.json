@@ -1,0 +1,22 @@
+{
+  "name": "nodeflashcard",
+  "version": "1.0.0",
+  "description": "flashcard app using node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "me",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.10"
+  },
+  "engines": {
+    "node": "8.12.0",
+    "npm": "6.4.1"
+  }
+}

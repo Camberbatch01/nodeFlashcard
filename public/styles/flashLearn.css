@@ -1,0 +1,87 @@
+html {
+    height: 100%;
+}
+body {
+    text-align: center;
+    height: 100%;
+}
+.container {
+    width: 50%;
+    height: 60%;
+    border-radius: 16px;
+    box-shadow: 2px 2px 2px 2px lightgray;
+    position: relative;
+    margin: auto;
+}
+#exit {
+    float: left;
+    background: rgb(247, 171, 9);
+    border: 0;
+    color: white;
+    height: inherit;
+    font-size: 1.5vw;
+}
+#exit:hover {
+    color: lightgray;
+    cursor: pointer;
+}
+#next {
+    background-color: white;
+    border: 2px solid rgb(247, 171, 9);
+    color: rgb(247, 171, 9);
+    position: absolute;
+    font-size: 1.5vw;
+    right: 1px;
+    bottom: 1px;
+    border-bottom-right-radius: 16px;
+}
+#next:hover {
+    cursor: pointer;
+    background-color: rgb(247, 171, 9);
+    color: white;
+}
+.header {
+    background: rgb(247, 171, 9);
+    color: white;
+    height: 55px;
+    box-shadow: 1px 1px 1px 1px black;
+}
+#front {
+    margin-bottom: 35px;
+}
+.input-group {
+    width: 80%;
+    margin: auto;
+}
+#lbl {
+    background-color: white;
+    font-weight: 700;
+}
+#reveal {
+    background: rgb(247, 171, 9);
+    color: white;
+    border: 1px solid rgba(209, 147, 13, 0.801);
+    box-shadow: 1px 1px 1px 1px lightgray;
+}
+#reveal:hover {
+    background: rgb(247, 188, 61);
+    cursor: pointer;
+}
+#amountCards {
+    float: left;
+}
+#score {
+    float: right;
+    color: green;
+}
+#back {
+    display: none;
+}
+#backCorrect {
+    color: green;
+    margin-top: 35px;
+}
+#backWrong {
+    color: red;
+    margin-top: 35px;
+}
