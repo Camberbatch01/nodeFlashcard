@@ -3,11 +3,11 @@ body {
     text-align: center;
 }
 .table {
-    font-size: 1.8vw;
+    font-size: 22px;
     table-layout: fixed;
 }
 td {
-    font-size: 1.65vw;
+    font-size: 20px;
     width: 33.33%;
 }
 td div {
@@ -17,7 +17,7 @@ td div {
 }
 #Add {
     background: rgb(247, 171, 9);
-    font-size: 1.5vw;
+    font-size: 20px;
     color: white;
     border-radius: 4px;
     box-shadow: 2px 2px 2px 2px lightgray;
@@ -25,7 +25,7 @@ td div {
     float: left;
 }
 #createNewDeck {
-    font-size: 1.5vw;
+    font-size: 20px;
     background: rgb(247, 171, 9);
     color: white;
     border: 1px solid rgba(209, 147, 13, 0.801);
@@ -37,14 +37,17 @@ td div {
 }
 #newDeckForm {
     display: block;
-    font-size: 1.65vw;
+    font-size: 20px;
 }
 #newDeckFormHide {
     display: none;
 }
 .input-group {
-    width: 40%;
+    width: 50%;
     margin: auto;
+}
+#deckName {
+    width: 60%;
 }
 #title {
     margin: auto;
