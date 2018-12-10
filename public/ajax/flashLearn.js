@@ -1,5 +1,5 @@
 document.getElementById("exit").addEventListener('click', function(){
-    window.location.href = "/learn";
+    window.location.href = "/learn";    //previous page
 });
 
 window.onload = function(){
@@ -20,13 +20,13 @@ function startLearning(response) {
     let counter = 1;
     let score = 0;
     let deckLength = response.data[0].cards.length;
-
+        //set up page elements
         document.getElementById("amountCards").innerHTML = `Q: ${counter}/${response.amount}`;
         document.getElementById("score").innerHTML = `${score}/${response.amount}`
 
         let index = Math.floor(Math.random()*(deckLength - 0.00001)); //deduct small decimal to stop maximum case exceeding array length
         document.getElementById("front").innerHTML = response.data[0].cards[index].front;
-        document.getElementById("back").innerHTML = response.data[0].cards[index].back;
+        document.getElementById("back").innerHTML = response.data[0].cards[index].back; //randomly select a card
     
     document.getElementById("next").addEventListener('click', function(){
         if (counter < response.amount){
@@ -46,7 +46,7 @@ function startLearning(response) {
             document.getElementById("front").innerHTML = response.data[0].cards[index].front;
             document.getElementById("back").innerHTML = response.data[0].cards[index].back;
         } else {
-            document.getElementById("next").style.display = "none";
+            document.getElementById("next").style.display = "none"; //dont allow the user to keep spamming next when out of cards
         }
     });
     document.getElementById("reveal").addEventListener('click', function(){
@@ -64,7 +64,7 @@ function startLearning(response) {
                     colourAns += `<span style="color: green">${ans[i]}</span>`;
                 } else {
                     colourAns += ans[i];
-                }
+                }   //set word red and make each correct letter green to show the user where they went wrong
             }
             document.getElementById("backWrong").innerHTML = colourAns;
         }
