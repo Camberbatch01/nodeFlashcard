@@ -2,8 +2,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 let taken;
-
-mongoose.connect("mongodb://test01:test01@ds255463.mlab.com:55463/flashcard");
+//set up connection to database w/schema 
+mongoose.connect("mongodb://test01:test01@ds255463.mlab.com:55463/flashcard"); 
 
 const flashcardSchema = new mongoose.Schema({
         deckName: String,
@@ -18,7 +18,7 @@ let urlencodedParser = bodyParser.urlencoded({extended: false});
 
 module.exports = (app) => {
     app.get('/', (req, res) => {
-        res.render('home')
+        res.render('home');      //when get request from front end is received with this location name, render specific page w/data needed
     });
     app.get('/yourDecks', (req, res) => {
         flashDb.find({}, function(err, data){
@@ -28,7 +28,7 @@ module.exports = (app) => {
     });
     app.get('/chosenDeck/:deck', (req, res) => {
         flashDb.find({deckName: req.params.deck}, function(err, data){
-            if (err) throw err;
+            if (err) throw err; //search DB for name that matches the requested one then send its data through to front end response item
             res.render("chosenDeck", {deck: data})
         });  
     });
@@ -56,7 +56,7 @@ module.exports = (app) => {
             if (err) throw err;
             for (i=0; i<data.length; i++){
                 if (req.body.deckName == data[i].deckName){
-                    taken = true;
+                    taken = true;       //if deck name is taken, dont want to add it to the database
                     break;
                 } else {
                     taken = false;
@@ -92,7 +92,7 @@ module.exports = (app) => {
     app.post('/chosenDeck/:deck', urlencodedParser, (req, res) => {
         let newCards = {front: req.body.front, back: req.body.back};
         flashDb.findOneAndUpdate({deckName: req.body.deckName}, {$push: {cards: newCards}}, function(err, data){
-            if (err) throw err;
+            if (err) throw err; //find deck name then add new cards to it and then send data to F/E
             res.json(data);
         });
     });
