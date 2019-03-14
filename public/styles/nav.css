@@ -6,10 +6,10 @@ nav {
     border-bottom: 1px solid grey;
     margin-bottom: 4rem;
 }
-.container{
+.containerNav{
     display: flex;
 }
-.container h1{
+.containerNav h1{
     margin-right: auto;
     margin-top: auto;
     margin-bottom: auto;

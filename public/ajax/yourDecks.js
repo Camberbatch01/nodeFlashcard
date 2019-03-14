@@ -2,6 +2,10 @@ document.getElementById("createNewDeck").addEventListener('click', function(e){
     e.preventDefault();
 
     let deckName = document.getElementById("deckName").value;
+    if (deckName=== ''){
+        alert("Must have a name");
+        return;
+    }
     let params = `deckName=${deckName}`;
     //create post req to url specified, passing through param data
     let xhr = new XMLHttpRequest();

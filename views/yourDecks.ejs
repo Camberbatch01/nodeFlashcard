@@ -29,19 +29,19 @@
                 <% } %>
             </table>
             <button id="Add" type="button" class="fas fa-plus"></button>
-        </div>
-        <br>
-        <form id="newDeckFormHide">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="deckName">Deck Name</label>
-                </div>
-                <input type="text" id="deckName" class="form-control" placeholder="..." required/>
-                <div class="input-group-append">
-                    <button type="submit" id="createNewDeck" class="fas fa-check btn btn-outline-secondary"></button>
-                </div>
-            </div>    
-        </form>
+            <br>
+            <form id="newDeckFormHide">
+                <div class="input-group">
+                    <div>
+                        <label class="labelNewDeck" for="deckName">Deck Name</label>
+                    </div>
+                    <div class="input-group-append">
+                        <input type="text" id="deckName" class="form-control" placeholder="..." required/>
+                        <button type="submit" id="createNewDeck" class="fas fa-check btn btn-outline-secondary"></button>
+                    </div>
+                </div>    
+            </form>
+        </div>    
         <script src="/ajax/yourDecks.js" type="text/javascript"></script>
     <body>
 <html>

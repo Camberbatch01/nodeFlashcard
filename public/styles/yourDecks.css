@@ -14,14 +14,23 @@ td div {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.container{
+    display: block;
+}
 #Add {
     background: rgb(247, 171, 9);
-    font-size: 20px;
+    font-size: 1.5rem;
+    padding: 0.25rem 0.75rem;
     color: white;
     border-radius: 4px;
     box-shadow: 2px 2px 2px 2px lightgray;
     border: 1px solid rgba(209, 147, 13, 0.801);
-    float: left;
+    margin-top: 1rem;
+    margin-right: auto;
+    display: flex;
+}
+#Add:focus{
+    outline: none;
 }
 #createNewDeck {
     font-size: 20px;
@@ -35,23 +44,28 @@ td div {
     cursor: pointer;
 }
 #newDeckForm {
-    display: block;
+    display: flex;
     font-size: 20px;
 }
 #newDeckFormHide {
     display: none;
 }
+.labelNewDeck{
+    font-size: 1.5rem;
+    float: left;
+}
 .input-group {
-    width: 50%;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.input-group-append{
+    width: 100%;
 }
 #deckName {
-    width: 60%;
+    max-width: 700px;
 }
 #title {
     margin: auto;
-    box-shadow: 0px 2px 0px 0px lightgray;
-    width: 40%;
 }
 .input-group-text{
     background: white;
