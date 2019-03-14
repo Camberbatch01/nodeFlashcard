@@ -30,7 +30,7 @@ nav {
     font-weight: 500;
 }
 .top-bar .links:hover{
-    color: grey;
+    color: lightgrey;
 }
 
 .small-screen-nav, .btn-options{
@@ -71,6 +71,6 @@ nav {
         font-size: 1.2rem;
     }
     .small-screen-nav-on .links:hover{
-        color: grey;
+        color: lightgrey;
     }
 }
