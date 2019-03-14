@@ -1,27 +1,76 @@
 nav {
     overflow: hidden;
     background-color: rgb(247, 171, 9);
-    position: fixed;
     top: 0;
     width: 100%;
-    box-shadow: 1px 1px 1px 1px black;
+    border-bottom: 1px solid grey;
+    margin-bottom: 4rem;
+    
 }
-nav a {
-    float: right;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px;
-    margin-right: 20px;
-    text-decoration: none;
+.container{
+    display: flex;
 }
-nav h1{
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    margin: 0;
+.container h1{
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 0.5rem;
+    color: white;
+}
+.top-bar{
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 0.5rem;
+}
+.top-bar .links{
+    padding: 0.5rem;
+    color: white;
     text-decoration: none;
-    padding: 10px;
-    font-size: 26px
+    font-size: 1.2rem;
+}
+.top-bar .links:hover{
+    color: grey;
+}
+
+.small-screen-nav, .btn-options{
+    display: none;
+}
+.small-screen-nav-on{
+    display: block;
+}
+
+@media all and (min-width: 601px){
+    .small-screen-nav-on{
+        display: none;
+    }
+}
+@media all and (max-width: 600px){
+    .top-bar{
+        display: none;
+    }
+    .btn-options{
+        display: block;
+        background: rgb(247, 171, 9);
+        color: white;
+        font-size: 1.5rem;
+        border: none;
+    }
+    .btn-options:hover{
+        cursor: pointer;
+        background: rgb(247, 189, 65);;
+    }
+    .btn-options:focus{
+        outline: none;
+    }
+    .small-screen-nav-on .links{
+        display: block;
+        padding: 0.5rem;
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+    .small-screen-nav-on .links:hover{
+        color: grey;
+    }
 }
