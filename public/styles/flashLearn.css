@@ -4,14 +4,21 @@ html {
 body {
     text-align: center;
     height: 100%;
+    margin-bottom: 2rem;
+}
+.titlePage{
+    margin: 1.5rem;
 }
 .container {
-    width: 50%;
-    height: 60%;
+    max-width: 800px;
+    height: 70vh;
     border-radius: 16px;
     box-shadow: 2px 2px 2px 2px lightgray;
     position: relative;
     margin: auto;
+}
+.learnPageContainer{
+    margin: 0 1.5rem;
 }
 #exit {
     float: left;
@@ -19,7 +26,7 @@ body {
     border: 0;
     color: white;
     height: inherit;
-    font-size: 1.5vw;
+    font-size: 1.5rem;
 }
 #exit:hover {
     color: lightgray;
@@ -30,7 +37,7 @@ body {
     border: 2px solid rgb(247, 171, 9);
     color: rgb(247, 171, 9);
     position: absolute;
-    font-size: 1.5vw;
+    font-size: 1.5rem;
     right: 1px;
     bottom: 1px;
     border-bottom-right-radius: 16px;
@@ -47,7 +54,7 @@ body {
     box-shadow: 1px 1px 1px 1px black;
 }
 #front {
-    margin-bottom: 35px;
+    margin: 10vh 0;
 }
 .input-group {
     width: 80%;

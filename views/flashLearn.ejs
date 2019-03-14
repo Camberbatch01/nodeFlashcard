@@ -11,27 +11,29 @@
     <body>
         <div class="header">
             <button type="button" class="fas fa-arrow-left" id="exit"> Exit</button>
-            <h1>Welcome To The Game</h1>
         </div>
-        <br>
-        <div class="container">
-                <h4 id="amountCards"></h4>
-                <h4 id="score"></h4>
-                <br>
-                <h1 id="front"></h1>
-                <br>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" id="lbl" for="guess">Back</label>
+        <div class="learnPageContainer">
+            <h1 class="titlePage">Welcome To The Game</h1>
+            <br>
+            <div class="container">
+                    <h4 id="amountCards"></h4>
+                    <h4 id="score"></h4>
+                    <br>
+                    <h1 id="front"></h1>
+                    <br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" id="lbl" for="guess">Back</label>
+                        </div>
+                        <input type="text" id="guess" class="form-control" placeholder="..." required/>
+                        <div class="input-group-append">
+                            <button type="submit" id="reveal" class="fas fa-check btn btn-outline-secondary"></button>
+                        </div>
                     </div>
-                    <input type="text" id="guess" class="form-control" placeholder="..." required/>
-                    <div class="input-group-append">
-                        <button type="submit" id="reveal" class="fas fa-check btn btn-outline-secondary"></button>
-                    </div>
-                </div>
-                <br>
-                <h1 id="back"></h1>
-                <button id="next" class="fas fa-arrow-right" type="button"></button>
+                    <br>
+                    <h1 id="back"></h1>
+                    <button id="next" class="fas fa-arrow-right" type="button"></button>
+            </div>
         </div>
         <script src="/ajax/flashLearn.js" type="text/javascript"></script>
     </body>
