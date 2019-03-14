@@ -1,6 +1,6 @@
 document.getElementById("Add").addEventListener('click', function(){
     try {
-        document.getElementById("newCardContainerHide").id = "newCardContainer";
+        document.getElementById("newCardContainerHide").id = "newCardContainer";    //change to different pre-styled ID. Make it show or go
     }
     catch {
         document.getElementById("newCardContainer").id = "newCardContainerHide";
@@ -9,15 +9,15 @@ document.getElementById("Add").addEventListener('click', function(){
 
 document.getElementById("submitNewCard").addEventListener('click', function(e){
     e.preventDefault();
-
+    //set parameter string to pass to the server
     let params = `front=${document.getElementById('frontCard').value}&back=${document.getElementById('backCard').value}&deckName=${document.getElementById('nameOfDeck').innerHTML}`;
-
+  
     let xhr = new XMLHttpRequest();
-    xhr.open('POST', '/chosenDeck/:deck', true);
+    xhr.open('POST', '/chosenDeck/:deck', true);    //send post req to the location specified with param data
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onload = function(){
         if(this.status == 200){
-            document.location.reload();
+            document.location.reload(); //if the server returns a valid response then reload the page to show updated version
         }
     }
     xhr.send(params);
@@ -27,7 +27,7 @@ document.getElementById("submitNewCard").addEventListener('click', function(e){
     for (i=0; i<deleteBtns.length; i++){
         deleteBtns[i].addEventListener('click', deleteCard);
     }
-    let editBtns = document.getElementsByClassName('far fa-edit');
+    let editBtns = document.getElementsByClassName('far fa-edit'); 
     for (i=0; i<editBtns.length; i++){
         editBtns[i].addEventListener('click', editCard);
 }
@@ -48,7 +48,7 @@ function deleteCard(){
 }
 
 function editCard(){
-    let enterCount = 0; //used to keep track of times entered on edit (max 2. front/back)
+    let enterCount = 0; //used to keep track of times enter is clicked on edit (max 2. front/back)
     frontCell = this.parentElement.parentElement.childNodes[3]; //find cells holding front and back card data
     backCell = this.parentElement.parentElement.childNodes[5];
 
