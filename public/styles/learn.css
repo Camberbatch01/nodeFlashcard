@@ -1,9 +1,12 @@
 body {
     text-align: center;
 }
+.learnContainer{
+    margin: 0 1.5rem;
+}
 #chooseDeck {
-    width: 50%;
     margin: auto;
+    max-width: 960px;
 }
 #learnDeckBtn {
     background: rgb(247, 171, 9);
