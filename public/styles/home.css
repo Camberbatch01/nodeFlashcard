@@ -1,14 +1,16 @@
-div {
-    background-image: url(/images/homepage.png);
-    height: 700px;
-    background-size: 100% 700px;
-}
 .display-4 {
-    color: white;
-    position: relative;
-    top: 160px;
     margin: auto;
     text-align: center;
-    width: 500px;
-    font-size: 4vw;
+    max-width: 960px;
+    padding: 0 2rem;
+    font-size: 3rem;
+    font-weight: 400;
+}
+.titleDiv{
+    margin-bottom: 4rem;
+}
+.imgDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
