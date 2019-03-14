@@ -25,6 +25,9 @@ nav {
 .top-bar .links{
     padding: 0.5rem;
     color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 .top-bar .links:hover{
     color: grey;
