@@ -9,8 +9,52 @@
 .titleDiv{
     margin-bottom: 4rem;
 }
-.imgDiv{
-    width: 100%;
+#info{
+    margin: 1rem 0 2rem;
+    font-weight: 600;
+    text-decoration: underline;
+}
+.loginDiv{
+    margin: auto;
+    padding: 2rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    max-width: 700px;
+    box-shadow: 1px 1px 1px 1px lightgrey;
+    border-radius: 4px;
+}
+label{
+    display: block;
+}
+.password{
+    margin-top: 0.5rem;
+}
+a{
+    margin-top: 2rem;
+}
+button{
+    margin-top: 2rem;
+    padding: 0;
+    font-size: 1.2rem;
+    width: 5rem;
+    border-radius: 4px;
+    border: 1px solid rgba(209, 147, 13, 0.801);
+    background: rgb(247, 171, 9);
+    color: white;
+}
+button:hover{
+    background: rgb(247, 188, 61);
+    cursor: pointer;
+}
+.header{
+    background: rgb(247, 171, 9);
+    color: white;
+    height: 55px;
+    border-bottom: 1px solid grey;
+    margin-bottom: 2rem;
+}
+.header h1{
+    font-size: 2rem;
+    padding: 0.5rem;
 }

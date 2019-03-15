@@ -9,12 +9,28 @@
         <link href="styles/home.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <% include partials/nav.ejs %>
+        <div class="header">
+            <h1>FlashCard</h1>
+        </div>
            <div class="titleDiv">
                 <h1 class="display-4">Welcome To A Generic Flashcard App</h1>
             </div>
-            <div class="imgDiv">
-                <img src="images/homepage.png" alt="deck of cards">  
+            <div class="loginDiv">
+                <h1>Login</h1>
+                <p id="info">This form is under development, just continue as guest</p>
+                <div class="user">
+                    <label for="username">Username</label>
+                    <input name="username" placeholder="...">  
+                </div>
+                <div class="password">
+                    <label for="password">Password</label>
+                    <input name="password" placeholder="...">   
+                </div>
+                <div>
+                   <button>login</button>
+                    <button onclick="window.location.href='/yourDecks'">guest</button> 
+                </div>
+                <a href="">Create New?</a>
             </div> 
     </body>
 </html>

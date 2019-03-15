@@ -51,7 +51,7 @@ body {
     background: rgb(247, 171, 9);
     color: white;
     height: 55px;
-    box-shadow: 1px 1px 1px 1px black;
+    border-bottom: 1px solid grey;
 }
 #front {
     margin: 10vh 0;
