@@ -1,5 +1,6 @@
 body {
     text-align: center;
+    padding-bottom: 4rem;
 }
 .fa-edit, #Add, #submitNewCard {
     background: rgb(247, 171, 9);

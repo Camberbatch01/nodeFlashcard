@@ -1,5 +1,6 @@
 body {
     text-align: center;
+    padding-bottom: 4rem;
 }
 .table {
     font-size: 22px;
@@ -44,7 +45,7 @@ td div {
     cursor: pointer;
 }
 #newDeckForm {
-    display: flex;
+    display: block;
     font-size: 20px;
 }
 #newDeckFormHide {
