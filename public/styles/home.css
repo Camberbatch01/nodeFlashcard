@@ -61,3 +61,9 @@ button:hover{
     font-size: 2rem;
     padding: 0.5rem;
 }
+@media all and (max-width: 700px){
+    .display-4{
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}
