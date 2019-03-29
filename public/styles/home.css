@@ -61,7 +61,7 @@ button:hover{
     padding: 0.5rem;
 }
 @media all and (max-width: 700px){
-    .display-4{
+    .display-4, .loginDiv h1{
         font-size: 1.5rem;
         font-weight: 600;
     }

@@ -68,7 +68,10 @@ module.exports = (app) => {
         flashDb.find({username: req.body.username}, function(err, data){
             if (err) throw err;
             if (data.length>0){
-                res.json("Username is taken");
+                res.json({
+                    success: false,
+                    message: "Username is taken"
+                });
             }
             else {
                 const newUser = {
@@ -84,7 +87,12 @@ module.exports = (app) => {
                 };
                 let newflashD = flashDb(newUser).save(function(err, data){
                     if (err) throw err;
-                        res.json("Created"); 
+                    user = req.body.username;
+                        res.json({
+                            success: true,
+                            message: "Created",
+                            username: req.body.username
+                        }); 
                     });
             }
         })

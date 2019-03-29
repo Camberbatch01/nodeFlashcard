@@ -12,10 +12,18 @@ document.getElementById("createNew").addEventListener('click', (e) => {
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhr.onload = function(){
                 if(this.status == 200){
-                        setTimeout(() => {
-                        alert(this.responseText);   //let the user know their account has been created or if its taken
-                        document.location.reload();
-                    }, 50);   
+                    const response = JSON.parse(this.response);
+                    if (response.success){
+                        alert(response.message);
+                        window.location.href = `/yourDecks/${response.username}`;
+                        //let xhttp = new XMLHttpRequest();
+                        //xhttp.open('GET', `/yourDecks/${response.username}`, true);
+                        //xhttp.send();
+                    }
+                    if (!response.success){
+                        alert(response.message)
+                        window.location.reload();
+                    }  
                 }
             }
             xhr.send(params);
