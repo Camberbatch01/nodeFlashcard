@@ -17,8 +17,8 @@
                 <div class="input-group">
                     <input type="number" min="1" step="1" id="learnDeckAmount" class="form-control" placeholder="Card Amount...?" required/>
                     <select class="custom-select" id="deckOptions">
-                        <% for (let i=0; i < deck.length; i++){ %>
-                        <option><%= deck[i].deckName %></option>
+                        <% for (let i=0; i < data.decks.length; i++){ %>
+                        <option><%= data.decks[i].deckName %></option>
                         <% } %>
                     </select>
                     <div class="input-group-append">

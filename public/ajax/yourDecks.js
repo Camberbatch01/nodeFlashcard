@@ -1,15 +1,16 @@
 document.getElementById("createNewDeck").addEventListener('click', function(e){
     e.preventDefault();
 
-    let deckName = document.getElementById("deckName").value;
+    const deckName = (document.getElementById("deckName").value).replace(/\s/g, '#');
     if (deckName=== ''){
         alert("Must have a name");
         return;
     }
+
     let params = `deckName=${deckName}`;
     //create post req to url specified, passing through param data
     let xhr = new XMLHttpRequest();
-    xhr.open('POST', '/yourDecks', true);
+    xhr.open('POST', '/yourDecks/:user', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onload = function(){
         if(this.status == 200){
@@ -34,7 +35,7 @@ function deleteDeck(){
         let params = `deckName=${deckName}`;
 
         let xhr = new XMLHttpRequest();
-        xhr.open('DELETE', '/yourDecks', true);
+        xhr.open('DELETE', '/yourDecks/:user', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         
         xhr.onload = function(){
