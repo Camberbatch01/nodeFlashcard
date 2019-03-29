@@ -3,20 +3,30 @@ document.getElementById("createNew").addEventListener('click', (e) => {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    const params = `username=${username}&password=${password}`;
+    if (username.length>1 && password.length>1){
+        if (username.charAt(0)!==" "){
+            const params = `username=${username}&password=${password}`;
 
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', '/:createUser', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function(){
-        if(this.status == 200){
-                setTimeout(() => {
-                alert(this.responseText);   //let the user know their deck has been created or if its taken
-                document.location.reload();
-            }, 50);   
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', '/:createUser', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function(){
+                if(this.status == 200){
+                        setTimeout(() => {
+                        alert(this.responseText);   //let the user know their account has been created or if its taken
+                        document.location.reload();
+                    }, 50);   
+                }
+            }
+            xhr.send(params);
+        } else {
+            alert("Can't have a username that starts with a space");
+            document.location.reload();
         }
+    } else {
+        alert("Invalid username/password length");
+        document.location.reload();
     }
-    xhr.send(params);
 })
 document.getElementById("loginBtn").addEventListener('click', () => {
     const username = document.getElementById("username").value;

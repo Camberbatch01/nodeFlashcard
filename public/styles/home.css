@@ -12,11 +12,6 @@ body{
 .titleDiv{
     margin-bottom: 4rem;
 }
-#info{
-    margin: 1rem 0 2rem;
-    font-weight: 600;
-    text-decoration: underline;
-}
 .loginDiv{
     margin: auto;
     padding: 2rem;
@@ -27,11 +22,15 @@ body{
     box-shadow: 1px 1px 1px 1px lightgrey;
     border-radius: 4px;
 }
+.loginDiv h1{
+    margin-bottom: 3rem;
+}
 label{
     display: block;
 }
 .password{
     margin-top: 0.5rem;
+    margin-bottom: 1rem;
 }
 a{
     margin-top: 2rem;
