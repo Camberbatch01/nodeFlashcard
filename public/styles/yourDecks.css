@@ -46,6 +46,8 @@ td div {
 }
 #newDeckForm {
     display: block;
+    margin: auto;
+    max-width: 800px;
     font-size: 20px;
 }
 #newDeckFormHide {
@@ -54,10 +56,6 @@ td div {
 .labelNewDeck{
     font-size: 1.5rem;
     float: left;
-}
-.input-group {
-    display: flex;
-    flex-direction: column;
 }
 .input-group-append{
     width: 100%;
