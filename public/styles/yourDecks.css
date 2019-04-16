@@ -33,14 +33,15 @@ td div {
 #Add:focus{
     outline: none;
 }
-#createNewDeck {
+#createNewDeck, .fa-share-alt {
     font-size: 20px;
     background: rgb(247, 171, 9);
     color: white;
     border: 1px solid rgba(209, 147, 13, 0.801);
+    border-radius: 4px;
     box-shadow: 1px 1px 1px 1px lightgray;
 }
-#createNewDeck:hover, #Add:hover {
+#createNewDeck:hover, #Add:hover, .fa-share-alt:hover {
     background: rgb(247, 188, 61);
     cursor: pointer;
 }
@@ -69,4 +70,11 @@ td div {
 .input-group-text{
     background: white;
     font-weight: 700;
+}
+.true {
+    background-color: green;
+    border: 1px solid green;
+}
+.true:hover{
+    background-color: lightgreen;
 }

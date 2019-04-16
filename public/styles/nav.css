@@ -42,12 +42,12 @@ nav {
     animation: 0.5s ease-out 0s 1 slideInFromSide;
 }
 
-@media all and (min-width: 601px){
+@media all and (min-width: 751px){
     .small-screen-nav-on{
         display: none;
     }
 }
-@media all and (max-width: 600px){
+@media all and (max-width: 750px){
     .top-bar{
         display: none;
     }

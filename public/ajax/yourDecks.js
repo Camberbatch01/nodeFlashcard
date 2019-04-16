@@ -28,6 +28,27 @@ for (i=0; i<delBtns.length; i++){
     delBtns[i].addEventListener('click', deleteDeck);
 }
 
+function shareDeck(){
+    const deckName = this.parentElement.parentElement.childNodes[3].textContent; //find text inside 1st td
+    const params = `deckName=${deckName}`;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', '/yourDecks/:user/share', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function(){
+        if (this.status == 200){
+            document.location.reload();
+        }
+    }
+    xhr.send(params);
+}
+
+const shareBtns = document.getElementsByClassName('fa-share-alt');
+for (i=0; i<shareBtns.length; i++){
+    shareBtns[i].addEventListener('click', shareDeck);
+}
+
 function deleteDeck(){
     let deckName = this.parentElement.parentElement.childNodes[1].textContent; //find text inside 1st td
 

@@ -13,7 +13,8 @@ const flashcardSchema = new mongoose.Schema({
         cards: [{
             front: String,
             back: String
-        }]
+        }],
+        shared: false
     }] 
 });
 const flashDb = mongoose.model('flashDb', flashcardSchema);
@@ -25,6 +26,20 @@ let user;
 module.exports = (app) => {
     app.get('/', (req, res) => {
         res.render('home');      //when get request from front end is received with this location name, render specific page w/data needed
+    });
+    app.get('/communityDecks', (req, res) => {
+        flashDb.find({}, function(err, data){
+            if (err) throw err;
+            let newData = [];
+            data.forEach(e => {
+                const newObj = {};
+                newObj["username"] = e.username;
+                newObj["decks"] = e.decks.filter(elem => elem.shared === true);
+                newData.push(newObj);
+            })
+            newData = newData.filter(e => e.decks.length > 0);
+            res.render('communityDecks', {data: newData, username: user});
+        })
     });
     app.get('/yourDecks/:user', (req, res) => {
         flashDb.find({username: user}, function(err, data){
@@ -82,7 +97,8 @@ module.exports = (app) => {
                         cards: [{
                             front: "Example",
                             back: "Example"
-                        }]
+                        }],
+                        shared: false
                     }]
                 };
                 let newflashD = flashDb(newUser).save(function(err, data){
@@ -143,7 +159,8 @@ module.exports = (app) => {
                         cards: [{
                             front: "Example",
                             back: "Example"
-                        }]
+                        }],
+                        shared: false
                     };
             flashDb.findOneAndUpdate({username: user}, {$push: {decks: newDeck}}, function(err, data){
                 if (err) throw err;
@@ -154,7 +171,27 @@ module.exports = (app) => {
                 }
             }); 
     });
-
+    app.post('/yourDecks/:user/share', urlencodedParser, (req, res) => {
+        flashDb.find({username: user}, function(err, data){
+            if (err) throw err;
+            let changeVar;
+            const dataDeck = data[0].decks.filter(e => e.deckName === req.body.deckName);
+            if (dataDeck[0].shared === true){
+                changeVar = false;
+            } else {
+                changeVar = true;
+            }
+            flashDb.findOneAndUpdate(
+                {username: user},
+                {$set: {"decks.$[deck].shared": changeVar}},
+                {arrayFilters: [{"deck.deckName": req.body.deckName}]},
+                function(err, data){
+                    if (err) throw err;
+                    res.json(data);
+                }
+            );
+        })
+    });
     app.delete('/yourDecks/:user', urlencodedParser, (req, res) => {
         flashDb.find({username: user}, function(err, data){
             if (err) throw err;
