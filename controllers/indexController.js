@@ -48,10 +48,11 @@ module.exports = (app) => {
         });
     });
     app.get('/chosenDeck/:deck', (req, res) => {
+        const deck = (req.params.deck).replace(/\+/g, ' ');
         flashDb.find({username: user}, function(err, data){
             if (err) throw err; //search DB for name that matches the requested one then send its data through to front end response item
             let newData = data[0].decks.filter(e => {
-                return e.deckName === req.params.deck;
+                return e.deckName === deck;
             });
             res.render("chosenDeck", {deck: newData, username: user})
         });  
@@ -204,6 +205,31 @@ module.exports = (app) => {
                 res.json(data)
             })
         })
+    });
+
+    app.post('/communityDecks/download', urlencodedParser, (req, res) => {
+        flashDb.find({username: req.body.creator}, function(err, data){
+            if (err) throw err;
+            const deck = data[0].decks.filter(e => e.deckName === req.body.deckName);
+            deck[0].shared = false;
+            
+            flashDb.find({username: user}, function(err, data){
+                if (err) throw err;
+                const sameNameDeck = data[0].decks.filter(e => e.deckName === req.body.deckName);
+                if (sameNameDeck.length > 0){
+                    deck[0].deckName += ` by ${req.body.creator}`;
+                    const alternateNameSame = data[0].decks.filter(e => e.deckName === deck[0].deckName);
+                    if (alternateNameSame.length > 0){
+                        res.json("Deck already exists in your collection");
+                        return;
+                    }
+                }
+                flashDb.findOneAndUpdate({username: user}, {$push: {decks: deck[0]}}, function(err, data){
+                    if (err) throw err;
+                    res.json("Downloaded");
+                });
+            });
+        });
     });
 
     app.post('/chosenDeck/:deck', urlencodedParser, (req, res) => {

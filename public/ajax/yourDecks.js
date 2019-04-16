@@ -50,9 +50,9 @@ for (i=0; i<shareBtns.length; i++){
 }
 
 function deleteDeck(){
-    let deckName = this.parentElement.parentElement.childNodes[1].textContent; //find text inside 1st td
+    const deckName = this.parentElement.parentElement.childNodes[3].textContent; //find text inside 1st td
 
-    if (confirm(`This will delete the deck ${deckName}. Are you sure?`)){
+    if (confirm(`Deleting ${deckName}. Are you sure?`)){
         let params = `deckName=${deckName}`;
 
         let xhr = new XMLHttpRequest();

@@ -28,7 +28,7 @@
                       <% } else{ %>  
                         <td><button type="button" class="fas fa-share-alt"></button></td>
                      <% } %>
-                    <td><div><a href=<%= "/chosenDeck/"+ data.decks[i].deckName  %>><%= data.decks[i].deckName %></a></div></td>
+                    <td><div><a href=<%= "/chosenDeck/"+ (data.decks[i].deckName).replace(/\s/g, '+')  %>><%= data.decks[i].deckName %></a></div></td>
                     <td><%= data.decks[i].cards.length %></td>
                     <td><button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button></td>
                 </tr>
