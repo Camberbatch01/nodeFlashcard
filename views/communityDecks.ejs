@@ -23,7 +23,7 @@
                 <% for (let i=0; i < data.length; i++){ %>
                     <% for (let j=0; j < data[i].decks.length; j++){ %>
                     <tr>
-                        <td><div><a href=<%= "/chosenDeck/"+ data[i].decks[j].deckName  %>><%= data[i].decks[j].deckName %></a></div></td>
+                        <td><div><a href=<%= "/communityDecks/"+ data[i].username + "/" + data[i].decks[j].deckName  %>><%= data[i].decks[j].deckName %></a></div></td>
                         <td><%= data[i].username %></td>
                         <td><button type="button" class="fas fa-download" aria-label="Download"><span aria-hidden="true"></span></button></td>
                     </tr>

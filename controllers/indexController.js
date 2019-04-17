@@ -41,6 +41,16 @@ module.exports = (app) => {
             res.render('communityDecks', {data: newData, username: user});
         })
     });
+    app.get('/communityDecks/:user/:deck', (req, res) => {
+        const username = req.params.user;
+        const deckName = req.params.deck;
+
+        flashDb.find({username: username}, function(err, data){
+            if (err) throw err;
+            const deckData = data[0].decks.filter(e => e.deckName === deckName);
+            res.render('viewCommunityDeck', {deck: deckData, username: username});
+        });
+    });
     app.get('/yourDecks/:user', (req, res) => {
         flashDb.find({username: user}, function(err, data){
             if (err) throw err;
@@ -208,28 +218,32 @@ module.exports = (app) => {
     });
 
     app.post('/communityDecks/download', urlencodedParser, (req, res) => {
-        flashDb.find({username: req.body.creator}, function(err, data){
-            if (err) throw err;
-            const deck = data[0].decks.filter(e => e.deckName === req.body.deckName);
-            deck[0].shared = false;
-            
-            flashDb.find({username: user}, function(err, data){
+        if (user === req.body.creator){
+            res.json("Can't download decks you have created");
+        } else {
+            flashDb.find({username: req.body.creator}, function(err, data){
                 if (err) throw err;
-                const sameNameDeck = data[0].decks.filter(e => e.deckName === req.body.deckName);
-                if (sameNameDeck.length > 0){
-                    deck[0].deckName += ` by ${req.body.creator}`;
-                    const alternateNameSame = data[0].decks.filter(e => e.deckName === deck[0].deckName);
-                    if (alternateNameSame.length > 0){
-                        res.json("Deck already exists in your collection");
-                        return;
-                    }
-                }
-                flashDb.findOneAndUpdate({username: user}, {$push: {decks: deck[0]}}, function(err, data){
+                const deck = data[0].decks.filter(e => e.deckName === req.body.deckName);
+                deck[0].shared = false;
+                
+                flashDb.find({username: user}, function(err, data){
                     if (err) throw err;
-                    res.json("Downloaded");
+                    const sameNameDeck = data[0].decks.filter(e => e.deckName === req.body.deckName);
+                    if (sameNameDeck.length > 0){
+                        deck[0].deckName += ` by ${req.body.creator}`;
+                        const alternateNameSame = data[0].decks.filter(e => e.deckName === deck[0].deckName);
+                        if (alternateNameSame.length > 0){
+                            res.json("Deck already exists in your collection");
+                            return;
+                        }
+                    }
+                    flashDb.findOneAndUpdate({username: user}, {$push: {decks: deck[0]}}, function(err, data){
+                        if (err) throw err;
+                        res.json("Downloaded");
+                    });
                 });
             });
-        });
+        }
     });
 
     app.post('/chosenDeck/:deck', urlencodedParser, (req, res) => {

@@ -1,0 +1,32 @@
+body {
+    text-align: center;
+    padding-bottom: 4rem;
+}
+.table {
+    table-layout: fixed;
+    font-size: 22px;
+}
+td {
+    font-size: 20px;
+    width: 33.33%;
+}
+td div {
+    max-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.container{
+    display: block;
+}
+.fa-download{
+    font-size: 20px;
+    background: rgb(247, 171, 9);
+    color: white;
+    border: 1px solid rgba(209, 147, 13, 0.801);
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px lightgray;
+}
+.fa-download:hover{
+    background: rgb(247, 188, 61);
+    cursor: pointer;
+}

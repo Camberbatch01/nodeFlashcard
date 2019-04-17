@@ -1,0 +1,21 @@
+body {
+    text-align: center;
+    padding-bottom: 4rem;
+}
+.table {
+    table-layout: fixed;
+}
+.fa-download{
+    float: right;
+    font-size: 26px;
+    padding: 4px;
+    background: green;
+    color: white;
+    border: 1px solid green;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px lightgray;
+}
+.fa-download:hover{
+    background: lightgreen;
+    cursor: pointer;
+}
