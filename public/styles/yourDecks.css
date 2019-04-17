@@ -5,15 +5,16 @@ body {
 .table {
     font-size: 22px;
     table-layout: fixed;
+    width: 100%;
 }
 td {
     font-size: 20px;
-    width: 33.33%;
+    padding: 0;
 }
 td div {
     max-height: 30px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    overflow-y: auto;
 }
 .container{
     display: block;
@@ -77,4 +78,10 @@ td div {
 }
 .true:hover{
     background-color: lightgreen;
+}
+@media all and (max-width: 700px){
+    #title{
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
 }

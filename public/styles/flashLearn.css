@@ -92,3 +92,9 @@ body {
     color: red;
     margin-top: 35px;
 }
+@media all and (max-width: 700px){
+    .titlePage{
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}
