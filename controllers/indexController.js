@@ -43,7 +43,7 @@ module.exports = (app) => {
     });
     app.get('/communityDecks/:user/:deck', (req, res) => {
         const username = req.params.user;
-        const deckName = req.params.deck;
+        const deckName = (req.params.deck).replace(/\+/g, ' ');
 
         flashDb.find({username: username}, function(err, data){
             if (err) throw err;

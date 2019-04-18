@@ -5,6 +5,18 @@ body {
 .table {
     table-layout: fixed;
 }
+#nameOfDeck, #creator {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.container{
+    animation: 1s ease-out 0s 1 fadeIn;
+}
+td div {
+    max-height: 30px;
+    overflow-wrap: break-word;
+    overflow-y: auto;
+}
 .fa-download{
     float: right;
     font-size: 26px;
@@ -25,3 +37,11 @@ body {
         font-weight: 600;
     }
 }
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

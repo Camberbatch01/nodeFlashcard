@@ -11,8 +11,10 @@ body{
 }
 .titleDiv{
     margin-bottom: 4rem;
+    animation: 1s ease-out 0s 1 fadeIn;
 }
 .loginDiv{
+    animation: 1s ease-out 0s 1 fadeIn;
     margin: auto;
     padding: 2rem;
     display: flex;
@@ -66,3 +68,11 @@ button:hover{
         font-weight: 600;
     }
 }
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

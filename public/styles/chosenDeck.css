@@ -2,6 +2,9 @@ body {
     text-align: center;
     padding-bottom: 4rem;
 }
+.container{
+    animation: 1s ease-out 0s 1 fadeIn;
+}
 .fa-edit, #Add, #submitNewCard {
     background: rgb(247, 171, 9);
     font-size: 1.5rem;
@@ -30,6 +33,7 @@ td div {
     overflow-y: auto;
 }
 #newCardContainer {
+    animation: 0.5s ease-out 0s 1 fadeIn;
     display: block;
     text-align: center;
     width: 50%;
@@ -58,3 +62,11 @@ td div {
         font-weight: 600;
     }
 }
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
