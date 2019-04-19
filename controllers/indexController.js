@@ -272,6 +272,18 @@ module.exports = (app) => {
         );
     });
 
+    app.post('/chosenDeck/:deck/editDeckName', urlencodedParser, (req, res) => {
+        flashDb.findOneAndUpdate(
+            {username: user},
+            {$set: {"decks.$[deck].deckName": req.body.newName}},
+            {arrayFilters: [{"deck.deckName": req.body.oldName}]},
+            function(err, data){
+                if (err) throw err;
+                res.json(data);
+            }
+        );
+    });
+
     app.delete('/chosenDeck/:deck',urlencodedParser, (req, res) => {
         let cardsDel = {front: req.body.front, back: req.body.back};
         flashDb.findOneAndUpdate(

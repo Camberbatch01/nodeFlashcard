@@ -12,7 +12,10 @@
     <body>
         <% include partials/nav.ejs %>
         <div class="container">
-            <h1 id="nameOfDeck"><%= deck[0].deckName %></h1>
+            <div id="deckNameContainer">
+                <h1 id="nameOfDeck"><%= deck[0].deckName %></h1>
+                <button id="edit">edit</button>                 
+            </div>
             <br>
             <br>  
             <table class="table table-sm">

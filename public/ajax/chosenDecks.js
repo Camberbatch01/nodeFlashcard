@@ -23,13 +23,40 @@ document.getElementById("submitNewCard").addEventListener('click', function(e){
     xhr.send(params);
 });
 
-    let deleteBtns = document.getElementsByClassName('close');
-    for (i=0; i<deleteBtns.length; i++){
-        deleteBtns[i].addEventListener('click', deleteCard);
-    }
-    let editBtns = document.getElementsByClassName('far fa-edit'); 
-    for (i=0; i<editBtns.length; i++){
-        editBtns[i].addEventListener('click', editCard);
+const deleteBtns = document.getElementsByClassName('close');
+for (i=0; i<deleteBtns.length; i++){
+    deleteBtns[i].addEventListener('click', deleteCard);
+}
+const editBtns = document.getElementsByClassName('far fa-edit'); 
+for (i=0; i<editBtns.length; i++){
+    editBtns[i].addEventListener('click', editCard);
+}
+const editDeckName = document.getElementById("edit").addEventListener('click', editName);
+
+function editName(){
+    const name = document.getElementById("nameOfDeck");
+    const oldName = name.textContent;
+    
+    name.setAttribute('contenteditable', true);
+    name.focus();
+    name.addEventListener('keypress', function(e){
+        if (e.key === 'Enter'){
+            e.preventDefault();
+            name.setAttribute('contenteditable', false);
+
+            const params = `newName=${name.textContent}&oldName=${oldName}`;
+
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', '/chosenDeck/:deck/editDeckName', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function(){
+                if(this.status == 200){
+                    document.location.replace(`/chosenDeck/${(name.textContent).replace(/\s/g, '+')}`);
+                }
+            }
+            xhr.send(params);
+        }
+    });
 }
 
 function deleteCard(){

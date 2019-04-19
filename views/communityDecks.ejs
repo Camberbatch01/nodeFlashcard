@@ -21,7 +21,7 @@
                     <th>Download</th> 
                 </thead>
                 <% for (let i=0; i < data.length; i++){ %>
-                    <% for (let j=0; j < data[i].decks.length; j++){ %>
+                    <% for (let j=0; j < data[i].decks.length; j++){ %>   
                     <tr>
                         <td><div><a href=<%= "/communityDecks/"+ data[i].username + "/" + (data[i].decks[j].deckName).replace(/\s/g, '+');  %>><%= data[i].decks[j].deckName %></a></div></td>
                         <td><%= data[i].username %></td>

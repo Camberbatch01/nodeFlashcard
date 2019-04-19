@@ -5,7 +5,20 @@ body {
 .container{
     animation: 1s ease-out 0s 1 fadeIn;
 }
-.fa-edit, #Add, #submitNewCard {
+#deckNameContainer{
+    margin: auto;
+    max-width: 960px;
+}
+.fa-edit{
+    background: rgb(247, 171, 9);
+    font-size: 20px;
+    padding: 0.25rem 0.5rem;
+    color: white;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px 2px lightgray;
+    border: 1px solid rgba(209, 147, 13, 0.801);
+}
+#Add, #submitNewCard {
     background: rgb(247, 171, 9);
     font-size: 1.5rem;
     padding: 0.25rem 0.75rem;
@@ -44,8 +57,6 @@ td div {
     display: none;
 }
 #nameOfDeck {
-    margin: auto;
-    max-width: 960px;
     overflow: hidden;
     text-overflow: ellipsis;
 }

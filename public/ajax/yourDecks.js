@@ -1,3 +1,7 @@
+if(performance.navigation.type === 2){
+    location.reload(true);
+}
+
 document.getElementById("createNewDeck").addEventListener('click', function(e){
     e.preventDefault();
 
