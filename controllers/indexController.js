@@ -27,6 +27,38 @@ module.exports = (app) => {
     app.get('/', (req, res) => {
         res.render('home');      //when get request from front end is received with this location name, render specific page w/data needed
     });
+    app.get('/communityDecks/:query', (req, res) => {
+        const query = (req.params.query).replace(/\+/g, ' ');
+
+        flashDb.find({}, function(err, data){
+            if (err) throw err;
+            let newData = [];
+            let queriedData = [];
+            data.forEach(e => {
+                const newObj = {};
+                newObj["username"] = e.username;
+                newObj["decks"] = e.decks.filter(elem => elem.shared === true);
+                newData.push(newObj);
+            })
+            newData = newData.filter(e => e.decks.length > 0);
+            newData.forEach(e => {
+                const newObj = {};
+                if (e.username === query){
+                    newObj["username"] = e.username;
+                    newObj["decks"] = e.decks.filter(elem => elem.shared === true);
+                    queriedData.push(newObj);
+                }
+                if (e.username !== query){
+                    newObj["username"] = e.username;
+                    newObj["decks"] = e.decks.filter(elem => elem.deckName === query);
+                    if (newObj.decks.length > 0){
+                        queriedData.push(newObj);
+                    }
+                }
+            })
+            res.render('communityDecks', {data: queriedData, username: user});
+        })
+    });
     app.get('/communityDecks', (req, res) => {
         flashDb.find({}, function(err, data){
             if (err) throw err;

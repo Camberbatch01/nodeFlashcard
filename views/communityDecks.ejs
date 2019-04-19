@@ -13,7 +13,12 @@
         <% include partials/nav.ejs %>
         <div class="container">
             <h1 id="title">Community Flashcard Decks<h1>
-            <br>    
+            <br>
+            <div class="input-group-append">
+                <input type="text" id="searchBar" class="form-control" placeholder="search...">
+                <button class="fas fa-search btn btn-outline-secondary" id="searchBtn"></button> 
+            </div>
+            <br>
             <table class="table table-sm">
                 <thead>
                     <th>Deck Name</th>

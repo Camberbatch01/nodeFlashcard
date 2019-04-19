@@ -25,3 +25,8 @@ const downloadBtns = document.getElementsByClassName("fa-download");
 for (i=0; i< downloadBtns.length; i++){
     downloadBtns[i].addEventListener('click', downloadDeck);
 }
+
+document.getElementById("searchBtn").addEventListener('click', function(){
+    const query = (document.getElementById("searchBar").value).replace(/\s/g, '+');
+    window.location.href = `/communityDecks/${query}`;
+})

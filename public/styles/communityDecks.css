@@ -15,6 +15,18 @@ td div {
     overflow-wrap: break-word;
     overflow-y: auto;
 }
+.input-group-append{
+    max-width: 600px;
+    margin: auto;
+}
+#searchBtn{
+    color: rgb(247, 171, 9);
+    border-color: rgba(209, 147, 13, 0.801);
+}
+#searchBtn:hover{
+    color: white;
+    background-color: rgb(247, 171, 9);
+}
 .container{
     display: block;
     animation: 1s ease-out 0s 1 fadeIn;
