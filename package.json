@@ -13,7 +13,8 @@
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "mongoose": "^5.3.10"
+    "mongoose": "^5.3.10",
+    "sweetalert2": "^8.8.5"
   },
   "engines": {
     "node": "8.12.0",

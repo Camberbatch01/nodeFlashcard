@@ -44,34 +44,60 @@ function editName(){
             e.preventDefault();
             name.setAttribute('contenteditable', false);
 
-            const params = `newName=${name.textContent}&oldName=${oldName}`;
+            if ((name.textContent.replace(/\s/g, '#')).charAt(0) === '#' || name.textContent.length === 0) {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Invalid deck name',
+                    text: 'Deck names must not be empty or start with a space',
+                    timer: 5000
+                }).then(()=> document.location.reload());
+            } else {
+                const params = `newName=${name.textContent}&oldName=${oldName}`;
 
-            let xhr = new XMLHttpRequest();
-            xhr.open('POST', '/chosenDeck/:deck/editDeckName', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onload = function(){
-                if(this.status == 200){
-                    document.location.replace(`/chosenDeck/${(name.textContent).replace(/\s/g, '+')}`);
+                let xhr = new XMLHttpRequest();
+                xhr.open('POST', '/chosenDeck/:deck/editDeckName', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onload = function(){
+                    if(this.status == 200){
+                        document.location.replace(`/chosenDeck/${(name.textContent).replace(/\s/g, '+')}`);
+                    }
                 }
+                xhr.send(params);    
             }
-            xhr.send(params);
         }
     });
 }
 
 function deleteCard(){
     let tdElements = this.parentElement.parentElement.childNodes;   //list all td's within tr in an array so i can pick out the front and back text
-    let params = `deckName=${document.getElementById('nameOfDeck').innerHTML}&front=${tdElements[3].textContent}&back=${tdElements[5].textContent}`;
+    
+    Swal.fire({
+        title: `Deleting...Are you sure?`,
+        text: "You won't be able to go back!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.value) {
+            const params = `deckName=${document.getElementById('nameOfDeck').innerHTML}&front=${tdElements[3].textContent}&back=${tdElements[5].textContent}`;
 
-    let xhr = new XMLHttpRequest();
-    xhr.open('DELETE', '/chosenDeck/:deck', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function(){
-        if(this.status == 200){
-            document.location.reload();
+            let xhr = new XMLHttpRequest();
+            xhr.open('DELETE', '/chosenDeck/:deck', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function(){
+                if(this.status == 200){
+                    Swal.fire(
+                        'Deleted!',
+                        'Your cards have been deleted.',
+                        'success'
+                    ).then(()=> document.location.reload());
+                }
+            }
+            xhr.send(params);    
         }
-    }
-    xhr.send(params);
+      });
 }
 
 function editCard(){

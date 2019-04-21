@@ -14,26 +14,47 @@ document.getElementById("createNew").addEventListener('click', (e) => {
                 if(this.status == 200){
                     const response = JSON.parse(this.response);
                     if (response.success){
-                        alert(response.message);
-                        window.location.href = `/yourDecks/${response.username}`;
-                        //let xhttp = new XMLHttpRequest();
-                        //xhttp.open('GET', `/yourDecks/${response.username}`, true);
-                        //xhttp.send();
+                        Swal.fire({
+                            title: 'Created',
+                            text: 'Your profile has been created',
+                            type: 'success',
+                            timer: 2000
+                        }).then(()=> {
+                            window.location.href = `/yourDecks/${response.username}`;
+                        });
                     }
                     if (!response.success){
-                        alert(response.message)
-                        window.location.reload();
+                        Swal.fire({
+                            title: response.message,
+                            type: 'error',
+                            timer: 2000
+                        }).then(() => {
+                            document.location.reload();
+                        })
                     }  
                 }
             }
             xhr.send(params);
         } else {
-            alert("Can't have a username that starts with a space");
-            document.location.reload();
+            Swal.fire({
+                type: 'error',
+                title: 'Invalid Username',
+                text: "Can't have a username that starts with a space"
+            }).then((result) => {
+                if (result.value){
+                    document.location.reload();    
+                }
+            });
         }
     } else {
-        alert("Invalid username/password length");
-        document.location.reload();
+        Swal.fire({
+            type: 'error',
+            title: "Invalid username/password length"
+        }).then((result) => {
+            if (result.value){
+                document.location.reload();    
+            }
+        });
     }
 })
 document.getElementById("loginBtn").addEventListener('click', () => {
@@ -50,7 +71,14 @@ document.getElementById("loginBtn").addEventListener('click', () => {
             const response = JSON.parse(this.response);
 
             if (!response.success){
-                alert(response.message);
+                Swal.fire({
+                    type: 'error',
+                    title: response.message,
+                    text: 'Try Again',
+                    timer: 2000
+                }).then(() => {
+                    document.location.reload();
+                });
             }
             if (response.success){
                 window.location.href = `/yourDecks/${response.message[0].username}`

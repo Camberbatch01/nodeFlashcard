@@ -207,10 +207,16 @@ module.exports = (app) => {
                     };
             flashDb.findOneAndUpdate({username: user}, {$push: {decks: newDeck}}, function(err, data){
                 if (err) throw err;
-                res.json("Created");
+                res.json({
+                    success: true,
+                    message: 'Created'
+                });
             })
                 } else if (taken) {
-                    res.json("This deck name is taken");
+                    res.json({
+                        success: false,
+                        message: "This deck name is taken"
+                    });
                 }
             }); 
     });
@@ -251,7 +257,10 @@ module.exports = (app) => {
 
     app.post('/communityDecks/download', urlencodedParser, (req, res) => {
         if (user === req.body.creator){
-            res.json("Can't download decks you have created");
+            res.json({
+                message: "Can't download decks you have created",
+                success: false
+            });
         } else {
             flashDb.find({username: req.body.creator}, function(err, data){
                 if (err) throw err;
@@ -265,13 +274,19 @@ module.exports = (app) => {
                         deck[0].deckName += ` by ${req.body.creator}`;
                         const alternateNameSame = data[0].decks.filter(e => e.deckName === deck[0].deckName);
                         if (alternateNameSame.length > 0){
-                            res.json("Deck already exists in your collection");
+                            res.json({
+                                message: "Deck already exists in your collection",
+                                success: false
+                            });
                             return;
                         }
                     }
                     flashDb.findOneAndUpdate({username: user}, {$push: {decks: deck[0]}}, function(err, data){
                         if (err) throw err;
-                        res.json("Downloaded");
+                        res.json({
+                            message: "The deck has been added to your decks",
+                            success: true
+                        });
                     });
                 });
             });
