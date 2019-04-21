@@ -43,14 +43,14 @@ module.exports = (app) => {
             newData = newData.filter(e => e.decks.length > 0);
             newData.forEach(e => {
                 const newObj = {};
-                if (e.username === query){
+                if (e.username.toLowerCase() === query.toLowerCase()){
                     newObj["username"] = e.username;
                     newObj["decks"] = e.decks.filter(elem => elem.shared === true);
                     queriedData.push(newObj);
                 }
-                if (e.username !== query){
+                if (e.username.toLowerCase() !== query.toLowerCase()){
                     newObj["username"] = e.username;
-                    newObj["decks"] = e.decks.filter(elem => elem.deckName === query);
+                    newObj["decks"] = e.decks.filter(elem => elem.deckName.toLowerCase() === query.toLowerCase());
                     if (newObj.decks.length > 0){
                         queriedData.push(newObj);
                     }
