@@ -13,6 +13,11 @@ body{
     margin-bottom: 4rem;
     animation: 1s ease-out 0s 1 fadeIn;
 }
+#revealPassword{
+    display: block;
+    height: 1.25rem;
+    width: 1.25rem;
+}
 .loginDiv{
     animation: 1s ease-out 0s 1 fadeIn;
     margin: auto;
@@ -30,9 +35,8 @@ body{
 label{
     display: block;
 }
-.password{
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
+#password, #username{
+    margin-bottom: 0.5rem;
 }
 a{
     margin-top: 2rem;

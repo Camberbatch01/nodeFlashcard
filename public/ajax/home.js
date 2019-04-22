@@ -1,3 +1,12 @@
+document.getElementById("revealPassword").addEventListener('click', function(){
+    const x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+});
+
 document.getElementById("createNew").addEventListener('click', (e) => {
     e.preventDefault();
     const username = document.getElementById("username").value;
