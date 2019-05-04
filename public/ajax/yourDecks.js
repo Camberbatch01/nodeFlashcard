@@ -105,7 +105,7 @@ document.getElementById("Add").addEventListener('click', function(){
     try {
         document.getElementById("newDeckFormHide").id = "newDeckForm";  //pre-styled ID's. Either show or hide
     }
-    catch {
+    catch(err) {
         document.getElementById("newDeckForm").id = "newDeckFormHide";
     }
 });

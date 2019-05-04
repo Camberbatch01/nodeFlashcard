@@ -38,7 +38,7 @@ function startLearning(response) {
             try {
                 document.getElementById("backCorrect").id = "back"; //reset id from color change id
             }
-            catch {
+            catch(err) {
                 document.getElementById("backWrong").id = "back";
             }
 

@@ -2,7 +2,7 @@ document.getElementById("Add").addEventListener('click', function(){
     try {
         document.getElementById("newCardContainerHide").id = "newCardContainer";    //change to different pre-styled ID. Make it show or go
     }
-    catch {
+    catch(err) {
         document.getElementById("newCardContainer").id = "newCardContainerHide";
     }
 });
